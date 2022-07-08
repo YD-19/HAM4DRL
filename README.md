@@ -4,13 +4,7 @@ A Holistic Assessment Method For Deep Reinforcement Learning
 
 Open a Terminal
 
-`git clone git@github.com:YD-19/HAM4DRL.git`
-
-`cd ~/HAM4DRL/src`
-
-`git clone git@github.com:ROBOTIS-GIT/turtlebot3.git`
-
-`git clone git@github.com:ROBOTIS-GIT/turtlebot3_msgs.git`
+`git clone git@github.com:YD-19/HAM4DRL.git --recurse-submodules`
 
 if you want to train in our small environment, you need to modify the description file in turtlebot3 package.
 
