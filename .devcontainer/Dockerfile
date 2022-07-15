@@ -28,9 +28,11 @@ RUN echo 'eval "$(pyenv init -)"' >> ~/.bashrc && \
 RUN pyenv install 3.7.13 && \
     pyenv global 3.7.13 && \
     pip install --upgrade pip && \
-    pip install pyyaml rospkg matplotlib scipy numpy && \
-    pip install 'tensorflow>=1.15,<2.0' keras==2.3.1 && \
+    # ddpg_main_1804.py
+    pip install pyyaml rospkg matplotlib scipy numpy 'tensorflow>=1.15,<2.0' keras==2.3.1 && \
     pip install protobuf==3.20.* && \
-    pip install defusedxml
+    pip install defusedxml && \
+    # catkin_make depends on EmPy
+    pip install empy
 
 ENV TURTLEBOT3_MODEL waffle_pi
