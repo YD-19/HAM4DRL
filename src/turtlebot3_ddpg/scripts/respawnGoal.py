@@ -21,18 +21,14 @@ import rospy
 import numpy as np
 import random
 import time
-import os
+from pathlib import Path
 from gazebo_msgs.srv import SpawnModel, DeleteModel
 from gazebo_msgs.msg import ModelStates
 from geometry_msgs.msg import Pose
 
 class Respawn():
     def __init__(self):
-        self.modelPath = os.path.dirname(os.path.realpath(__file__))
-        self.modelPath = self.modelPath.replace('/home/yi/HAM4DRL/src/turtlebot3_DDPG/scripts',
-                                                '/home/yi/HAM4DRL/src/turtlebot3_DDPG/worlds/models/turtlebot3_square/goal_box/model.sdf')
-        self.f = open(self.modelPath, 'r')
-        self.model = self.f.read()
+        self.model = Path(__file__).parents[1].joinpath('worlds/models/turtlebot3_square/goal_box/model.sdf').open('r').read()
         self.stage = rospy.get_param('/stage_number')
         self.goal_position = Pose()
         self.init_goal_x = 0.6
